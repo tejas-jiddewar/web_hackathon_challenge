@@ -53,3 +53,21 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+
+## 🌐 Live Deployment
+[View Live Site](https://yourprojectname.netlify.app)
+
+## 🧩 Features Implemented
+- Responsive design  
+- 6+ interactive features  
+- Subtle animations  
+- Accessibility improvements  
+- Mobile compatibility  
+- Smooth scrolling  
+
+## 🧠 AI Tools Used
+- ChatGPT (for code & optimization suggestions)
+- Figma to Code plugin (if used)
+
+## 👨‍💻 Team
+Team Leader: Team Jugaadu
