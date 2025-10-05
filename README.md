@@ -55,7 +55,7 @@ This project is built with:
 - Tailwind CSS
 
 ## 🌐 Live Deployment
-[View Live Site]([https://yourprojectname.netlify.app](https://web3dpp.netlify.app/))
+[View Live Site](https://web3dpp.netlify.app/)
 
 ## 🧩 Features Implemented
 - Responsive design  
