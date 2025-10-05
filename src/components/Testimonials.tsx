@@ -33,8 +33,26 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="testimonials" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+      
+      {/* Floating quotes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-primary/10 text-6xl animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDuration: `${10 + Math.random() * 10}s`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          >
+            "
+          </div>
+        ))}
+      </div>
       
       <div className="container px-4 relative z-10">
         <div className="text-center space-y-4 mb-16">

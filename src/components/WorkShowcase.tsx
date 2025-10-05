@@ -36,8 +36,20 @@ const WorkShowcase = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="container px-4">
+    <section id="work" className="py-24 relative overflow-hidden">
+      {/* 3D background elements */}
+      <div className="absolute inset-0 perspective-1000">
+        <div 
+          className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg blur-2xl animate-float"
+          style={{ transformStyle: "preserve-3d", animationDuration: "12s" }}
+        />
+        <div 
+          className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-accent/20 to-secondary-glow/20 rounded-lg blur-2xl animate-float"
+          style={{ transformStyle: "preserve-3d", animationDuration: "15s", animationDelay: "3s" }}
+        />
+      </div>
+      
+      <div className="container px-4 relative z-10">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl md:text-5xl font-bold">
             Our <span className="text-gradient">Latest Work</span>

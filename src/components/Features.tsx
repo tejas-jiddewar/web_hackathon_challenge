@@ -40,9 +40,22 @@ const Features = () => {
   const isInView = useInView(ref);
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="features" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Background effect */}
       <div className="absolute inset-0 bg-gradient-radial opacity-30" />
+      
+      {/* Animated grid background */}
+      <div className="absolute inset-0 opacity-10">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+                             linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+            animation: "grid-move 20s linear infinite",
+          }}
+        />
+      </div>
       
       <div className="container px-4 relative z-10">
         <div className="text-center space-y-4 mb-16">
@@ -65,8 +78,31 @@ const Features = () => {
                 animationDelay: `${index * 0.1}s`,
                 transformStyle: "preserve-3d"
               }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                e.currentTarget.style.transform = `
+                  perspective(1000px)
+                  rotateY(${x * 10}deg)
+                  rotateX(${-y * 10}deg)
+                  translateZ(10px)
+                `;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "";
+              }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+              
+              {/* Shine effect */}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                style={{
+                  background: "linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)",
+                  animation: "shine 2s ease-in-out infinite",
+                }}
+              />
               
               <div className="relative space-y-4">
                 <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center group-hover:scale-110 transition-transform">

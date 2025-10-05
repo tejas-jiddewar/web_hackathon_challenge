@@ -13,12 +13,12 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated background */}
       <div 
         className="absolute inset-0 z-0"
         style={{ 
-          transform: `translateY(${scrollY * 0.5}px)`,
+          transform: `translateY(${scrollY * 0.5}px) scale(${1 + scrollY * 0.0002})`,
           transition: "transform 0.1s ease-out"
         }}
       >
@@ -28,6 +28,18 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+      </div>
+
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "0s", animationDuration: "8s" }}
+        />
+        <div 
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s", animationDuration: "10s" }}
+        />
       </div>
 
       {/* Floating particles */}
